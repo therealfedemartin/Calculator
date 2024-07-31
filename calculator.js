@@ -26,17 +26,14 @@ let secondNumber;
 //**** CREATE FUNCTION THAT CALLS CALCULATION FUNCTIONS ****
 
 function operate (numberOne, operator, numberTwo) {
-    let numberOne = a;
-    let numberTwo = b;
-    
     switch (operator) {
         case clickAdd:
-            return add(a, b);  
+            return add(numberOne, numberTwo);  
         case clickSubtract:
-            return subtract(a, b);
+            return subtract(numberOne, numberTwo);
         case clickMultiply:
-            return multiply(a, b);
+            return multiply(numberOne, numberTwo);
         case clickDivide:
-            return divide(a, b);
+            return divide(numberOne, numberTwo);
     }
 }

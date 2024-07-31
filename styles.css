@@ -1,0 +1,90 @@
+body {
+    height: 100vh;
+    margin: 0;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: lightgray;
+}
+
+#container {
+    width: 400px;
+    border: 5px solid black;
+    background-color: #3b7861;
+    box-sizing: border-box;
+    padding: 10px;
+}
+
+#display {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+    margin: 0;
+    border: 5px solid black;
+    background-color: lightgrey;
+    height: 70px;
+    box-sizing: border-box;
+    padding: 10px;
+
+    font-size: 40px;
+    font-weight: bold;
+}
+
+#buttonsContainer {
+    display: flex;
+    flex-wrap: wrap;
+    
+    border: 5px solid black;
+    border-top: 0px;
+}
+
+#clear, #sign, #percentage, #divide, #multiply, #subtract, #add, #equal, #number {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+
+    width: 90px;
+    height: 70px;
+    box-sizing: border-box;
+    border: 2px solid black;
+    padding: 0;
+    border-radius: 3px;
+
+    font-size: 20px;
+    font-weight: bold;
+}
+
+
+#clear, #sign, #percentage {
+    background-color: lightsteelblue;
+}
+
+#divide, #multiply, #subtract, #add, #equal {
+    background-color: #FF8F1F;
+}
+
+#number {
+    background-color: #217C7E;
+}
+
+#numberCero {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    
+    width: 180px;
+    height: 70px;
+    box-sizing: border-box;
+    border: 2px solid black;
+    padding: 0;
+
+    background-color: #217C7E;
+    border-radius: 3px;
+
+    font-size: 20px;
+    font-weight: bold;
+}
