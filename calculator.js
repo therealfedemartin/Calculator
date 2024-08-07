@@ -31,14 +31,14 @@ function operate (numberOne, operator, numberTwo) {
     }
 }
 
-//**** DEFINO VARIABLES ****
+//**** Variables defined  ****
 
 let operators = "";
 let secondNumber = "";
 let pressed = "";
 let firstNumber = "";
 
-//**** DEFINO LOS BOTONES ****
+//**** BTNS defined ****
 
 const display = document.querySelector("#display");
 display.textContent = "0";
@@ -179,5 +179,16 @@ sign.addEventListener('click', () => {
     if (display.textContent != "0") {
         let toDecimal = Number(display.textContent) * -1;
         display.textContent = toDecimal;
+    }
+});
+
+const dot = document.querySelector(".dot");
+dot.addEventListener('click', () => {
+let arr = display.textContent;
+let newArr = arr.split("");
+    if (newArr.includes(".") === true) {
+
+    } else {
+    display.textContent += dot.textContent;
     }
 });

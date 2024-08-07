@@ -11,7 +11,7 @@ body {
 #container {
     width: 400px;
     border: 5px solid black;
-    background-color: #3b7861;
+    background-color: lightslategray;
     box-sizing: border-box;
     padding: 10px;
     
