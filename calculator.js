@@ -20,158 +20,164 @@ function divide (a, b) {
 
 function operate (numberOne, operator, numberTwo) {
     switch (operator) {
-        case clickAdd:
+        case "+":
             return add(numberOne, numberTwo);  
-        case clickSubtract:
+        case "-":
             return subtract(numberOne, numberTwo);
-        case clickMultiply:
+        case "*":
             return multiply(numberOne, numberTwo);
-        case clickDivide:
+        case "/":
             return divide(numberOne, numberTwo);
     }
 }
 
-let operators;
-let secondNumber;
-let firstNumber;
+//**** DEFINO VARIABLES ****
 
-const one = document.querySelector(".one");
-const two = document.querySelector(".two");
-const three = document.querySelector(".three");
-const four = document.querySelector(".four");
-const five = document.querySelector(".five");
-const six = document.querySelector(".six");
-const seven = document.querySelector(".seven");
-const eight = document.querySelector(".eight");
-const nine = document.querySelector(".nine");
-const zero = document.querySelector(".zero");
+let operators = "";
+let secondNumber = "";
+let pressed = "";
+let firstNumber = "";
 
-const addBTN = document.querySelector(".addBTN");
+//**** DEFINO LOS BOTONES ****
 
 const display = document.querySelector("#display");
-const clear = document.querySelector(".clear");
-
 display.textContent = "0";
 
-one.addEventListener('click', () => {
-    if (display.textContent.length < 16) {
-        if (display.textContent === "0") {
-            display.textContent = "1";
-        } else {
-            display.textContent += "1";
+const numb = document.querySelectorAll('.numb');
+for (const btn of numb) {
+    btn.addEventListener('click', () => {
+        if (display.textContent.length < 16) {
+            if (pressed === "") {
+                if (display.textContent === "0") {
+                    display.textContent = btn.textContent;
+                } else {
+                    display.textContent += btn.textContent;
+                }
+            } else {
+                display.textContent = "";
+                pressed = "";
+                display.textContent = btn.textContent;
+            }
         }
-    }
-    addBTN.style.opacity = "1";
-});
+        addBTN.style.opacity = "1";
+        subtractBTN.style.opacity = "1";
+        multiplyBTN.style.opacity = "1";
+        divideBTN.style.opacity = "1";
+    });
+}
 
-two.addEventListener('click', () => {
-    if (display.textContent.length < 16) {
-        if (display.textContent === "0") {
-            display.textContent = "2";
-        } else {
-            display.textContent += "2";
-        }
-    }
-    addBTN.style.opacity = "1";
-});
-
-three.addEventListener('click', () => {
-    if (display.textContent.length < 16) {
-        if (display.textContent === "0") {
-            display.textContent = "3";
-        } else {
-            display.textContent += "3";
-        }
-    }
-    addBTN.style.opacity = "1";
-});
-
-four.addEventListener('click', () => {
-    if (display.textContent.length < 16) {
-        if (display.textContent === "0") {
-            display.textContent = "4";
-        } else {
-            display.textContent += "4";
-        }
-    }
-    addBTN.style.opacity = "1";
-});
-
-five.addEventListener('click', () => {
-    if (display.textContent.length < 16) {
-        if (display.textContent === "0") {
-            display.textContent = "5";
-        } else {
-            display.textContent += "5";
-        }
-    }
-    addBTN.style.opacity = "1";
-});
-
-six.addEventListener('click', () => {
-    if (display.textContent.length < 16) {
-        if (display.textContent === "0") {
-            display.textContent = "6";
-        } else {
-            display.textContent += "6";
-        }
-    }
-    addBTN.style.opacity = "1";
-});
-
-seven.addEventListener('click', () => {
-    if (display.textContent.length < 16) {
-        if (display.textContent === "0") {
-            display.textContent = "7";
-        } else {
-            display.textContent += "7";
-        }
-    }
-    addBTN.style.opacity = "1";
-});
-
-eight.addEventListener('click', () => {
-    if (display.textContent.length < 16) {
-        if (display.textContent === "0") {
-            display.textContent = "8";
-        } else {
-            display.textContent += "8";
-        }
-    }
-    addBTN.style.opacity = "1";
-});
-
-nine.addEventListener('click', () => {
-    if (display.textContent.length < 16) {
-        if (display.textContent === "0") {
-            display.textContent = "9";
-        } else {
-            display.textContent += "9";
-        }
-    }
-    addBTN.style.opacity = "1";
-});
-
+const zero = document.querySelector(".zero");
 zero.addEventListener('click', () => {
     if (display.textContent.length < 16) {
         if (display.textContent === "0") {
-        } else {
-            display.textContent += "0";
-        }
+            } else if (pressed  != "" && display.textContent != "0") {
+                display.textContent = zero.textContent;
+            } else {
+                display.textContent += zero.textContent;
+            }
     }
     addBTN.style.opacity = "1";
 });
 
+const clear = document.querySelector(".clear");
 clear.addEventListener('click', () => {
     if (display.textContent === "0") {
     } else {
         display.textContent = "0";
+        firstNumber = "";
+        secondNumber = "";
+        operators = "";
     }
     addBTN.style.opacity = "1";
+    subtractBTN.style.opacity = "1";
+    multiplyBTN.style.opacity = "1";
+    divideBTN.style.opacity = "1";
 });
 
+const addBTN = document.querySelector(".addBTN");
 addBTN.addEventListener('click', () => {
     addBTN.style.opacity = "0.5";
-    firstNumber = display.textContent.slice(0);
+    firstNumber = Number(display.textContent);
     operators = "+";
+    pressed = "Algo";
+    
+    subtractBTN.style.opacity = "1";
+    multiplyBTN.style.opacity = "1";
+    divideBTN.style.opacity = "1";
+});
+
+const subtractBTN = document.querySelector(".subtractBTN");
+subtractBTN.addEventListener('click', () => {
+    subtractBTN.style.opacity = "0.5";
+    firstNumber = Number(display.textContent);
+    operators = "-";
+    pressed = "Algo";
+    addBTN.style.opacity = "1";
+    multiplyBTN.style.opacity = "1";
+    divideBTN.style.opacity = "1";
+});
+
+const multiplyBTN = document.querySelector(".multiplyBTN");
+multiplyBTN.addEventListener('click', () => {
+    multiplyBTN.style.opacity = "0.5";
+    firstNumber = Number(display.textContent);
+    operators = "*";
+    pressed = "Algo";
+    addBTN.style.opacity = "1";
+    subtractBTN.style.opacity = "1";
+    divideBTN.style.opacity = "1";
+});
+
+const divideBTN = document.querySelector(".divideBTN");
+divideBTN.addEventListener('click', () => {
+    divideBTN.style.opacity = "0.5";
+    firstNumber = Number(display.textContent);
+    operators = "/";
+    pressed = "Algo";
+    addBTN.style.opacity = "1";
+    subtractBTN.style.opacity = "1";
+    multiplyBTN.style.opacity = "1";
+});
+
+const equal = document.querySelector(".equal");
+equal.addEventListener('click', () => {
+    if (operators === "/" && display.textContent === "0") {
+        display.textContent = "∞ UOPS! ∞"
+        firstNumber = "";
+        secondNumber = "";
+        operators = "";
+    } else {
+        if (operators != "" ) {
+            secondNumber = Number(display.textContent);
+            let result = operate(firstNumber, operators, secondNumber);
+            if ((result % 1) != 0) {
+                let withDecimal = Number(result).toFixed(2)
+                display.textContent = withDecimal;
+            } else {
+                display.textContent = result;
+            }
+            
+            firstNumber = "";
+            secondNumber = "";
+            operators = "";
+        }
+    }
+});
+
+const percentage = document.querySelector(".percentage");
+percentage.addEventListener('click', () => {
+    if (display.textContent != "0") {
+        if (display.textContent.length < 6) {
+            let toDecimal = Number(display.textContent) / 100;
+            display.textContent = toDecimal;
+        }
+    }
+});
+
+const sign = document.querySelector(".sign");
+sign.addEventListener('click', () => {
+    if (display.textContent != "0") {
+        let toDecimal = Number(display.textContent) * -1;
+        display.textContent = toDecimal;
+    }
 });
